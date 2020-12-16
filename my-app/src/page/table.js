@@ -11,7 +11,7 @@ class Table extends Component {
   render(){
     return (
         <>
-        <span>Employee Directory</span>
+        <h1> Employee Directory </h1>
         <table className="table-primary">
             <tr>
                 <th>id</th>
