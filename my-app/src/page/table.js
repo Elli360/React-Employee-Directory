@@ -1,17 +1,21 @@
 import React, {Component} from 'react';
-import Data from "../employeesdata.json";
+import Data from "./API";
 import "./style.css";
+import Searchbar from "src\page\searchbar.js";
+
 
 class Table extends Component {
 
     state= {
         employees: Data
     }
+    
 
   render(){
     return (
         <>
         <h1> Employee Directory </h1>
+        <Searchbar></Searchbar>
         <table className="table-primary">
             <tr>
                 <th>id</th>
