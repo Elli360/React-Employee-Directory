@@ -21,6 +21,7 @@ function SearchForm() {
             </button>
           </div>
         </form>
+  );
 }
 
 export default SearchForm;
