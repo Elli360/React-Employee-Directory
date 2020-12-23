@@ -7,7 +7,8 @@ import Searchbar from "./searchbar.js";
 class Table extends Component {
 
     state= {
-        employees:[]
+        employees:[],
+        searchEmployees:[{}]
         // axios.get("https://randomuser.me/api/?results=200&nat=us")
     }
 
@@ -19,13 +20,23 @@ class Table extends Component {
         })
 
     }
+    handleSearchChange= event => {
+        const search=event.target.value;
+        const searchList=this.state.employees.search(item => {
+            let values=Object.values(item)
+            .join("")
+            .toLowerCase();
+            return values.indexOf(search.toLowerCase()) !== -1;
+    });
+        this.setState({searchEmployees:searchList});
+}
 
   render(){
       console.log("employees", this.state.employees)
     return (
-        <>
+        <div className="Table-area">
         <h1> Employee Directory </h1>
-        <Searchbar></Searchbar>
+        <Searchbar handleSearchChange={ handleSearchChange }/>
         <table className="table-primary">
             <tr>
                 <th>Id</th>
@@ -45,11 +56,8 @@ class Table extends Component {
             </tr>
              )
             }
-            {/* <tr>
-                <td>Test</td>
-            </tr> */}
         </table>
-        </>
+        </div>
     );
   }
 }

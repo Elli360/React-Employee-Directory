@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Table from "./page/table";
+import Table from "./components/table";
 
 
 class App extends Component {
