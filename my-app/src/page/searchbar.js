@@ -1,10 +1,10 @@
 // sample code 
 import React from "react";
 
-function SearchForm(props) {
+function Searchbar(props) {
   return (
         <form>
-          <div className="form-group"> style ={{ display: 'flex' }}
+          <div className="form-group" style={{ display: 'flex' }}> 
             <label htmlFor="search">Search:</label>
             <input
               onChange={props.handleInputChange} 
@@ -24,4 +24,4 @@ function SearchForm(props) {
   );
 }
 
-export default SearchForm;
+export default Searchbar;
