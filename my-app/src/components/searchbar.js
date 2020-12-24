@@ -1,5 +1,6 @@
 // sample code 
 import React from "react";
+import Table from "./table.js";
 
 function Searchbar({ handleSearchChange }) {
   return (

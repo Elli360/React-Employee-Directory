@@ -3,7 +3,6 @@ import axios from "axios";
 import "./style.css";
 import Searchbar from "./searchbar.js";
 
-
 class Table extends Component {
 
     state= {
@@ -31,12 +30,26 @@ class Table extends Component {
         this.setState({searchEmployees:searchList});
 }
 
+    // handleInputChange = (e) =>{
+    //     this.setState({
+    //         [e.target.name]: e.target.value,
+    //     });
+    // }
+    // handleFormSubmit = (e) => {
+    //     e.preventDefault();
+    //     this.searchEmployees(this.state.search);
+    // }
+
   render(){
       console.log("employees", this.state.employees)
     return (
-        <div className="Table-area">
+        <div className="table-area">
         <h1> Employee Directory </h1>
-        <Searchbar handleSearchChange={ handleSearchChange }/>
+        <Searchbar 
+        // value={this.state.search}
+        // handleInputChange={this.handleInputChange}
+        // handleFormSubmit={this.handleInputSubmit}
+        handleSearchChange={ handleSearchChange }/>
         <table className="table-primary">
             <tr>
                 <th>Id</th>
