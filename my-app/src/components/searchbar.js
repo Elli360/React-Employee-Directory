@@ -1,11 +1,11 @@
 // sample code 
 import React from "react";
-import Table from "./table.js";
 
-function Searchbar({ handleSearchChange }) {
+
+function Searchbar({handleSearchChange}) {
   return (
     <div className="searchbar">
-      <form className="form-inline">
+      <div className="form-inline">
         <input
           className="form-control"
           type="search"
@@ -13,7 +13,7 @@ function Searchbar({ handleSearchChange }) {
           aria-label="Search"
           onChange={e => handleSearchChange(e)}
         />
-      </form>
+      </div>
     </div>
   );
 }

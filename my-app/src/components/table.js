@@ -7,21 +7,20 @@ class Table extends Component {
 
     state= {
         employees:[],
-        searchEmployees:[{}]
-        // axios.get("https://randomuser.me/api/?results=200&nat=us")
+        searchEmployees:[]
     }
 
     componentDidMount = () => {
         console.log("ComponentMount");
         axios.get("https://randomuser.me/api/?results=200&nat=us").then((res)=>{
-            this.setState({employees:res.data.results});
+            this.setState({searchEmployees:res.data.results,employees:res.data.results});
             console.log("RES",res.data.results);
         })
 
     }
-    handleSearchChange= event => {
+    handleSearchChange = event => {
         const search=event.target.value;
-        const searchList=this.state.employees.search(item => {
+        const searchList=this.state.employees.filter(item => {
             let values=Object.values(item)
             .join("")
             .toLowerCase();
@@ -30,26 +29,14 @@ class Table extends Component {
         this.setState({searchEmployees:searchList});
 }
 
-    // handleInputChange = (e) =>{
-    //     this.setState({
-    //         [e.target.name]: e.target.value,
-    //     });
-    // }
-    // handleFormSubmit = (e) => {
-    //     e.preventDefault();
-    //     this.searchEmployees(this.state.search);
-    // }
-
   render(){
       console.log("employees", this.state.employees)
     return (
         <div className="table-area">
         <h1> Employee Directory </h1>
         <Searchbar 
-        // value={this.state.search}
-        // handleInputChange={this.handleInputChange}
-        // handleFormSubmit={this.handleInputSubmit}
-        handleSearchChange={ handleSearchChange }/>
+        value={this.state.searchEmployees}
+        handleSearchChange={this.handleSearchChange}/>
         <table className="table-primary">
             <tr>
                 <th>Id</th>
@@ -59,7 +46,7 @@ class Table extends Component {
                 <th>Email</th>
             </tr>
             {
-             this.state.employees.map((employee)=>
+             this.state.searchEmployees.map((employee)=>
              <tr>
                 <td>{employee.id.value}</td>
                 <td>{employee.name.first}</td>
